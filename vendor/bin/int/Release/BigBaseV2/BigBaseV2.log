@@ -1,0 +1,7 @@
+﻿  buffer.c
+  hde32.c
+  hde64.c
+  hook.c
+  trampoline.c
+  Generating Code...
+  MinHook.vcxproj -> C:\Users\jonaaa20\Desktop\RecoverySuiteV2\vendor\MinHook\..\..\bin\lib\Release\MinHook.lib

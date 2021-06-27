@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="g3log">
+      <UniqueIdentifier>{81AD640F-EDC1-8CC0-B643-3020221789F1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\g2log.hpp" />
+    <ClInclude Include="src\g3log\active.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\atomicbool.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\crashhandler.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\filesink.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\future.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\g3log.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\generated_definitions.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\logcapture.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\loglevels.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\logmessage.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\logworker.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\moveoncopy.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\shared_queue.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\sink.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\sinkhandle.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\sinkwrapper.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\stacktrace_windows.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\stlpatch_future.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g3log\time.hpp">
+      <Filter>g3log</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\crashhandler_windows.cpp" />
+    <ClCompile Include="src\filesink.cpp" />
+    <ClCompile Include="src\g3log.cpp" />
+    <ClCompile Include="src\logcapture.cpp" />
+    <ClCompile Include="src\loglevels.cpp" />
+    <ClCompile Include="src\logmessage.cpp" />
+    <ClCompile Include="src\logworker.cpp" />
+    <ClCompile Include="src\stacktrace_windows.cpp" />
+    <ClCompile Include="src\time.cpp" />
+  </ItemGroup>
+</Project>
