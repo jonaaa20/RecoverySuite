@@ -7259,6 +7259,9 @@ namespace big
 		}
 		if (g_gui.cas_cooldown_bypass) {
 			g_fiber_pool->queue_job([] {
+
+				// Variant #1: The most popular and maybe detected (?) variant, i prefer this one, it's straight and... less buggy, but, if you're scared of using it, use the other variants.
+
 				STATS::STAT_SET_INT(RAGE_JOAAT("MPPLY_CASINO_CHIPS_WON_GD"), 0, TRUE);
 				STATS::STAT_SET_INT(RAGE_JOAAT("MPPLY_CASINO_CHIPS_WONTIM"), 0, TRUE);
 				STATS::STAT_SET_INT(RAGE_JOAAT("MPPLY_CASINO_CHIPS_PUR_GD"), 0, TRUE);
@@ -7303,6 +7306,26 @@ namespace big
 				STATS::STAT_SET_INT(RAGE_JOAAT("MPPLY_CAS_24H_GMBLNG_PX"), 0, TRUE);
 				STATS::STAT_SET_INT(RAGE_JOAAT("MPPLY_CHIPS_COL_TIME"), 0, TRUE);
 				});
+		}
+		if (g_gui.cas_cooldown_bypass_2) {
+
+			// Variant #2: this variant is interesting, i like it because that's the most simple way to bypass the cooldown, how it works? it's simple, the original value is 2880.
+			// 2880 SECONDS = 48 MINUTES IRL, so, these tuneables are used as a timer to reset the WON_GD and PUR_GD stats, yes, that's exactly how it works, set them to 0 or -1 (way better and faster?)
+			// then, after changing the value, you don't need to do anything, just sit and rest, the game will reset them for you!
+			// but, there's a catch, if you're the type of player that like to abuse from methods, be careful, sometimes, you'll get "banned" from casino, and the only way to get "unbanned" is to use the above variant, the #1.
+
+			*script_global(262145).at(26470).as<int*>() = 0;
+			*script_global(262145).at(26471).as<int*>() = 0;
+		}
+		if (g_gui.cas_cooldown_bypass_3) {
+
+			// Variant #3: this variant is... simple and i wouldn't recommend it, the default value is 5,000,000, so, how it works? well, let's say, normally you can only earn up to 5M max and then
+			// you need to wait 48 minutes to play again (yes, those 2880 above will help with that), anyway, you need to set to a higher value, maybe INT_MAX or any value you want.
+			// you're the boss, you decide the value, it can be useful to be used as a 'limit' if you want to prevent people from abusing it, it's really useful.
+			// the downside is, let's say you set this tuneable to 2,000,000,000 and you earned 2B of chips, you'll need to wait the cooldown, so, you can use the above variant with this, up to you.
+
+			*script_global(262145).at(26473).as<int*>() = INT_MAX;
+
 		}
 		if (g_gui.stop_anim) {
 			g_fiber_pool->queue_job([] {

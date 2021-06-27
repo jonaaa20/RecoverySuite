@@ -72,6 +72,8 @@ namespace big
 		bool bet_multiplier = false;
 		bool slots_bet = false;
 		bool cas_cooldown_bypass = false;
+		bool cas_cooldown_bypass_2 = false;
+		bool cas_cooldown_bypass_3 = false;
 		bool stop_anim = false;
 		bool force_trans = false;
 		bool fast_spin = false;
