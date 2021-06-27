@@ -7216,6 +7216,9 @@ namespace big
 		}
 		if (g_gui.always_jackpot) {
 			g_fiber_pool->queue_job([] {
+
+				// Basically, Always win the slots, not worth mentioning it.
+
 				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 					for (int i = 1; i <= 195; i++) {
@@ -7230,6 +7233,9 @@ namespace big
 		}
 		if (g_gui.bet_multiplier) {
 			g_fiber_pool->queue_job([] {
+
+				// Change all the bet multipliers to 1000x so even if you get the worst prize from the slots, you'll earn the same value as you would get with a jackpot!
+
 				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 					for (int i = 1; i <= 10; i++) {
@@ -7242,6 +7248,11 @@ namespace big
 		if (g_gui.slots_bet) {
 			g_fiber_pool->queue_job([]
 				{
+
+					// Always Win 2,500,00 in ANY MACHINE, no need to use Deity or Diamond anymore.
+					// Explaining a bit more about the code, the value 500 means the minimum bet
+					// the 5 is the multiplier, let me explain better, when you sit in a machine, you have two options, SPACE to increase bet the and TAB to change to the max BET, the local_2134 is responsible for that.
+
 					gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 						auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 						auto local_219 = script_local(slots_thread, 219);
@@ -7254,6 +7265,9 @@ namespace big
 		}
 		if (g_gui.increase_chips_limit) {
 			g_fiber_pool->queue_job([] {
+
+				// Used to increase the chips limit, from 2B to 2.1B, not that useful but feel free to give a shot.
+
 				*script_global(262145).at(26469).as<int*>() = INT_MAX;
 			});
 		}
@@ -7329,6 +7343,9 @@ namespace big
 		}
 		if (g_gui.stop_anim) {
 			g_fiber_pool->queue_job([] {
+
+				// This will try to stop the character animation while playing the slot machine, it works but it can be buggy sometimes, try it.
+
 				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 					*script_local(slots_thread, 1648).as<int*>() = 4;
@@ -7337,6 +7354,10 @@ namespace big
 		}
 		if (g_gui.force_trans) {
 			g_fiber_pool->queue_job([] {
+
+				// My favorite way to earn fast chips! Run this code in a loop (fastest loop you got) then enable with Jackpot then see the magic.
+				// But, there's a big problem with it, i would recommend before using it, please mute the game or... disable the slots sounds because it will get loud, really loud.
+
 				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 					*script_local(slots_thread, 1644).as<int*>() = 50341673;
@@ -7345,6 +7366,9 @@ namespace big
 		}
 		if (g_gui.fast_spin) {
 			g_fiber_pool->queue_job([] {
+
+				// You already know about it or you probably already seen it somewhere so i won't give much details about it.
+
 				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 					auto local_3407 = script_local(slots_thread, 3407).at(PLAYER::PLAYER_ID(), 11).at(10).as<int*>();
@@ -7356,6 +7380,9 @@ namespace big
 		}
 		if (g_gui.auto_play) {
 			g_fiber_pool->queue_job([] {
+
+				// Basically, it will Auto-Play the slot machine.
+
 				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
 					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
 					auto local_1644 = script_local(slots_thread, 1644).as<int*>();
@@ -7368,6 +7395,9 @@ namespace big
 		}
 		if (g_gui.auto_play_blackjack) {
 			g_fiber_pool->queue_job([] {
+
+				// A very "complex" code to Auto-Play blackjack, quick note, use it with Anti-AFK.
+
 				gta_util::execute_as_script(RAGE_JOAAT("BLACKJACK"), [] {
 					auto blackjack_thread = gta_util::find_script_thread(RAGE_JOAAT("BLACKJACK"));
 					auto current_table = script_local(blackjack_thread, 1782).at(PLAYER::PLAYER_ID(), 8).at(4).as<int*>();
@@ -7381,6 +7411,9 @@ namespace big
 		}
 		if (g_gui.rig_blackjack) {
 			g_fiber_pool->queue_job([] {
+
+				// A basic rig blackjack code but, you won't need to spend any of your chips because it will make the bet FREE and you'll always win 2,500,000 chips, always.
+
 				gta_util::execute_as_script(RAGE_JOAAT("BLACKJACK"), [] {
 					auto blackjack_thread = gta_util::find_script_thread(RAGE_JOAAT("BLACKJACK"));
 					auto current_table = script_local(blackjack_thread, 1782).at(PLAYER::PLAYER_ID(), 8).at(4).as<int*>();
@@ -7405,6 +7438,9 @@ namespace big
 		}
 		if (g_gui.bypass_cooldown_err) {
 			g_fiber_pool->queue_job([] {
+
+				// A Basic message bypass, not worth mentioning it.
+
 				int message_id = *script_global(MessageID_1).as<int*>();
 
 				if (message_id == 20 || message_id == 4) {
