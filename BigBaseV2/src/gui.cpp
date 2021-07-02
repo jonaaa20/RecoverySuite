@@ -7231,6 +7231,31 @@ namespace big
 					});
 				});
 		}
+		if (g_gui.always_jackpot_2) {
+			g_fiber_pool->queue_job([] {
+
+				// Variant #2 - This variant is a good alternative if you don't want to change the entire "Probability Table" that you can find inside the scripts.
+				// How it works? The first three (local_2097.f_1, 2, 3) are related with the slots you can find in the machine.
+				// The "63" value is basically the 63th position of the "Probability Table", the 63th position (or is it 64th?) will give you the "6", 6 = Best prize, Jackpot.
+				// You ask, what's this probability table? That's the probability table -> https://imgur.com/a/rBidKj9
+				// But, there's a "downside", if you only change the first three values, the slots icons will tell that you lost but in reality, you won but don't get fooled.
+				// You will probably think "this way it will be more safer, correct?", no, incorrect. Let's not forget we're messing with locals, in this case, they're just icons.
+				// Rockstar knows you're winning and it's being sent to the server.
+				// So, the last three values (1082130432) are basically the "Jackpot" icons, you're not obliged to use the last three, it's just to make it look 'cool'.
+				// You NEED to run this in a LOOP, always. The good part is, you don't need to leave the casino if you want to disable the Jackpot option.
+
+				gta_util::execute_as_script(RAGE_JOAAT("CASINO_SLOTS"), [] {
+					auto slots_thread = gta_util::find_script_thread(RAGE_JOAAT("CASINO_SLOTS"));
+					*script_local(slots_thread, 2097).at(1).as<unsigned int*>() = 63;
+					*script_local(slots_thread, 2097).at(2).as<unsigned int*>() = 63;
+					*script_local(slots_thread, 2097).at(3).as<unsigned int*>() = 63;
+					//////////////////////////////////////////////////////////////////
+					*script_local(slots_thread, 2097).at(5).as<unsigned int*>() = 1082130432;
+					*script_local(slots_thread, 2097).at(6).as<unsigned int*>() = 1082130432;
+					*script_local(slots_thread, 2097).at(7).as<unsigned int*>() = 1082130432;
+				});
+			});
+		}
 		if (g_gui.bet_multiplier) {
 			g_fiber_pool->queue_job([] {
 

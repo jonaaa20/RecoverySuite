@@ -69,6 +69,7 @@ namespace big
 		bool anti_afk = false;
 		bool rp_loop = false;
 		bool always_jackpot = false;
+		bool always_jackpot_2 = false;
 		bool bet_multiplier = false;
 		bool slots_bet = false;
 		bool cas_cooldown_bypass = false;
