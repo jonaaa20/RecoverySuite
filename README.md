@@ -11,4 +11,4 @@ I, uhh, i'm tired of playing GTA since what's more popular are kicks and crashes
 
 # Warning
 
-Careful, some people are selling this source for 500$ and, some skid P2Cs (e.g [NewWay](https://imgur.com/a/7MiSmwz)) also stole some features from this source and is also selling it, this source (even if it's outdated), it's free and for personal use, if you paid for it, get your money back!
+Careful, some people are selling this source for 500$ and, some skid P2Cs (e.g [NewWay](https://imgur.com/a/7MiSmwz) and [NEOROX](https://imgur.com/a/163aPSc)) also stole some features from this source and is also selling it, this source (even if it's outdated), it's free and for personal use, if you paid for it, get your money back!
